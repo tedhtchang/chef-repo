@@ -71,3 +71,11 @@ end
 #pip-python install /opt/contrail/contrail_installer/contrail_setup_utils/pycrypto-2.6.tar.gz
 #pip-python install /opt/contrail/contrail_installer/contrail_setup_utils/paramiko-1.11.0.tar.gz
 #pip-python install /opt/contrail/contrail_installer/contrail_setup_utils/Fabric-1.7.0.tar.gz
+include_recipe "python::package"
+%w{'/opt/contrail/contrail_installer/contrail_setup_utils/pycrypto-2.6.tar.gz' \
+	'/opt/contrail/contrail_installer/contrail_setup_utils/paramiko-1.11.0.tar.gz' \
+	'/opt/contrail/contrail_installer/contrail_setup_utils/Fabric-1.7.0.tar.gz'}.each do |ppkg|
+	python_pip ppkg do
+		action :install
+	end
+end
