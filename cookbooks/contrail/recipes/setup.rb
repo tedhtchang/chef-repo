@@ -47,7 +47,7 @@ end
 # Remove contrail-fabric-utils
 # Workaround to fix bug(https://bugs.launchpad.net/juniperopenstack/+bug/1361452)
 #yum -y --disablerepo=* remove contrail-fabric-utils
-%w{python-crypto-2.0.1 contrail-fabric-utils}.each do |pkg|
+%w{python-crypto contrail-fabric-utils}.each do |pkg|
 	package pkg do
 		options	'--disablerepo=*'
 		action :remove
